@@ -10,14 +10,14 @@ test.describe("Testing page load and navigation", async() => {
     })
 
     test("Navigating to sell", async ({page}) => {
-        await page.pause
-        await page.locator("a.gh-p").click()
-        expect("h2.textual-display").toContainText("Why eBay?")
+        await page.pause()
+        await page.locator(`a[_sp="m570.l1528"]`).click()
+        await expect(page.getByText("Turn your passion into profit")).toBeVisible()
     })
 
     test("Navigating to help", async ({page}) => {
-        await page.pause
-        await page.locator("li.gh-t").click()
-        expect("h1#srTil").toContainText("How can we help you today?")
+        await page.pause()
+        await page.locator(`a[_sp="m570.l1545"]`).click()
+        await expect(page.getByText("How can we help you today?")).toBeVisible()
     })
 })
